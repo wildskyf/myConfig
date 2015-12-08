@@ -13,3 +13,5 @@ if [ -n "$WINDOWID" ]; then
 fi
 
 alias update='sudo dnf update -y'
+alias vi='vim'
+
