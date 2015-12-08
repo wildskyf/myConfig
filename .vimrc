@@ -34,6 +34,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
