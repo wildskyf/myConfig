@@ -14,4 +14,4 @@ fi
 
 alias update='sudo dnf update -y'
 alias vi='vim'
-
+alias heroku="/usr/local/heroku/bin/heroku"

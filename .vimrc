@@ -36,6 +36,10 @@ Plugin 'xolox/vim-notes'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -52,7 +56,8 @@ syntax on			" 語法上色
 set hlsearch		" 搜尋到的字加 hightlight
 set encoding=utf-8	" 編碼
 set number			" 顯示行號。
-set cursorline		" 顯示目前的游標位置
+set cursorline		" 顯示目前的游標位置(行)
+set cursorcolumn	" 顯示目前的游標位置(列)。
 set ruler			" 顯示右下角設定值
 set ic				" 搜尋忽略大小寫。
 set hlsearch		" 設定高亮度顯示搜尋結果
