@@ -22,30 +22,26 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Bundles
 Plugin 'ap/vim-css-color'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+" Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'itchyny/lightline.vim'
+Plugin 'godlygeek/tabular'				" 自動對齊
+Plugin 'itchyny/lightline.vim'			" 美化狀態列
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'nielsmadan/harlequin'			" 主題
 Plugin 'mattn/emmet-vim'
-Plugin 'Molokai'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'snipMate'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-" Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'tpope/vim-commentary'			" 讓註解超好用！
+Plugin 'tpope/vim-fugitive'				" 在 vim 中使用 git 指令
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'vim-scripts/grep.vim'
-Plugin 'vim-scripts/CSApprox'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-Plugin 'kchmck/vim-coffee-script'
+
+" Dependencies of snipMate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'snipMate'
 
 call vundle#end()
 filetype plugin indent on
@@ -75,8 +71,10 @@ set scrolloff=2		" 捲動時保留底下 2 行
 set showmatch		" 設置匹配模式，顯示匹配的括號
 set wrap			" 字數過長時換行
 
-" 讓 git commit 字數限制爲 72 字
+" 讓 git commit 字數限制為 72 字
 autocmd Filetype gitcommit setlocal spell textwidth=72
+" 在存檔時自動把多餘的空白字元吃掉
+autocmd BufWritePre * StripWhitespace
 
 " Tab
 set tabstop=4
@@ -97,13 +95,16 @@ let g:vim_markdown_frontmatter=1		" 啟用 front matter (for jekyll)
 " ================  Map  =================
 " ========================================
 
-" 切換行號
-nnoremap <F12> :set nonumber!<CR>
-" 開啟函式清單 for C/C++
-map <F3> :Tlist<CR>
-" 開啟檔案瀏覽
+" F2     : 開啟檔案瀏覽
+" F3     : 開啟函式清單 for C/C++
+" F9     : 切換 paste 模式
+" F12    : 切換行號
+" Ctrl+/ : 依等號對齊
 nmap <silent> <F2> :NERDTreeToggle<CR>
+map <F3> :Tlist<CR>
 :set pastetoggle=<F9>
+nnoremap <F12> :set nonumber!<CR>
+map <C-/> :Tabularize /=<CR>
 
 " ========================================
 " ===============  theme  ================
@@ -111,18 +112,38 @@ nmap <silent> <F2> :NERDTreeToggle<CR>
 
 set t_Co=256		" 歡樂的顏色！
 let g:lightline = {
-	\ 'colorscheme': 'jellybeans'
-	\ }
+	\ 'colorscheme': 'wombat'
+\ }
 
-colorscheme molokai
-
+set background=dark
+colorscheme harlequin
 
 " ========================================
 " =============== hint ===================
 " ========================================
 
-" Tab == ctrl + t == >>
-" Shift == ctrl + d == <<
-" m數字：移動到第「數字」行
-" 插入： I i a A
-"
+" 縮排               : Tab == ctrl + t == >>
+" 取消縮排           : Shift == ctrl + d == <<
+" 移動到第「數字」行 : :m[n]
+" 插入				 : I i a A
+" 多行註解1          : [n]gcc
+" 多行註解2          : Visual 下按 gc
+" 自動對齊			 : Visual 下，:Tabu /[對齊字元]
+
+" ========================================
+" =============== auto ==================
+" ========================================
+
+" 用 | 來畫表格的時候，第三行開始會自動對齊
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+	let p = '^\s*|\s.*\s|\s*$'
+	if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+		Tabularize/|/l1
+		normal! 0
+		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+	endif
+endfunction
