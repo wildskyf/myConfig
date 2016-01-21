@@ -21,21 +21,30 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Bundles
-Plugin 'Molokai'
-Plugin 'itchyny/lightline.vim'
-Plugin 'snipMate'
-Plugin 'mattn/emmet-vim'
 Plugin 'ap/vim-css-color'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'itchyny/lightline.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'mattn/emmet-vim'
+Plugin 'Molokai'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'snipMate'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-scripts/grep.vim'
+Plugin 'vim-scripts/CSApprox'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
@@ -66,16 +75,23 @@ set scrolloff=2		" 捲動時保留底下 2 行
 set showmatch		" 設置匹配模式，顯示匹配的括號
 set wrap			" 字數過長時換行
 
+" 讓 git commit 字數限制爲 72 字
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " Tab
 set tabstop=4
 set shiftwidth=4
 set autoindent
 set copyindent
-set smartindent 
+set smartindent
 
 " Treeview
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
+
+" Markdown
+let g:vim_markdown_folding_disabled=1	" 停用摺疊
+let g:vim_markdown_frontmatter=1		" 啟用 front matter (for jekyll)
 
 " ========================================
 " ================  Map  =================
@@ -87,6 +103,7 @@ nnoremap <F12> :set nonumber!<CR>
 map <F3> :Tlist<CR>
 " 開啟檔案瀏覽
 nmap <silent> <F2> :NERDTreeToggle<CR>
+:set pastetoggle=<F9>
 
 " ========================================
 " ===============  theme  ================
@@ -108,3 +125,4 @@ colorscheme molokai
 " Shift == ctrl + d == <<
 " m數字：移動到第「數字」行
 " 插入： I i a A
+"
