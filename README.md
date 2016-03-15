@@ -8,6 +8,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim .vimrc
 ```
 
-then type `:PluginInstall`
+Then type `:PluginInstall`
+
+Don't forget to install `ctag`
 
 that is it!
