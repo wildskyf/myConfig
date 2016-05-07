@@ -10,9 +10,10 @@ fi
 # 彩繪 terminal 起始字串
 export PS1="\[\e[0;32m\][\[\e[0;31m\]\u\[\e[m\]@\[\e[m\e[0;34m\]\h\[\e[m \e[0;32m\]\W]\ >>>\[\e[m\]"
 
+alias 'ctrl-c'='xclip -sel clip <'
 alias update='sudo dnf update -y'
 alias vi='vim'
-alias heroku="/usr/local/heroku/bin/heroku"
+alias bundleman='bundle exec middleman'		
 alias ip_checkout_to="sudo ifconfig enp2s0 hw ether"
 
 # ls 的顏色更改
