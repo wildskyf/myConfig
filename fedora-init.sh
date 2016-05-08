@@ -34,7 +34,7 @@ wget https://atom.io/download/rpm /tmp/atom.rpm
 sudo dnf install -y /tmp/atom.rpm
 
 # Dev
-sudo dnf install -y gcc gcc-c++ git tig
+sudo dnf install -y gcc gcc-c++ git tig ctags
 sudo dnf install -y eclipse
 sudo dnf install -y nodejs npm
 sudo npm install surge -g
@@ -57,4 +57,14 @@ sudo echo "export QT_IM_MODULE=fcitx" >> /etc/profile
 sudo echo "export XMODIFIERS="@im=fcitx"" >> /etc/profile
 im-chooser
 
-echo "Now, you can go to "https://developer.android.com/sdk/index.html#downloads" to download tools that you need
+# clone conf files
+rm ~/.bashrc
+rm ~/.vimrc
+rm ~/.gitconfig
+wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.bashrc
+wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.vimrc
+wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.gitconfig
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo "Now, you can go to 'https://developer.android.com/sdk/index.html#downloads' to download tools that you need."
+echo "Besides, you sholud install plugins for vim by using the command: ':PluginInstall'."
