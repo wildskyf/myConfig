@@ -20,6 +20,7 @@ sudo dnf -y update
 
 # Fonts
 sudo dnf -y install wqy*
+sudo dnf install -y cjkuni-ukai-fonts cjkuni-uming-fonts font-manager
 
 # Gpaste Integration
 sudo dnf install gnome-shell-extension-gpaste -y
