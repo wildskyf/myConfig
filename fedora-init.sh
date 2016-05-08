@@ -33,7 +33,7 @@ dnf install -y /tmp/atom.rpm
 dnf install -y gcc gcc-c++ git tig ctags
 dnf install -y eclipse
 dnf install -y nodejs npm
-npm install surge -g
+npm install surge mocha gulp grunt -g
 dnf install -y python3
 dnf install -y ruby ruby-devel rubygems
 gem install github-pages --no-ri --no-rdoc
