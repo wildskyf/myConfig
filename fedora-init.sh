@@ -64,3 +64,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Now, you can go to 'https://developer.android.com/sdk/index.html#downloads' to download tools that you need."
 echo "Besides, you sholud install plugins for vim by using the command: ':PluginInstall'."
+
+read -n1 -r -p "Press any key to continue..." key
