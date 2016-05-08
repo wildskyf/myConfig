@@ -41,7 +41,7 @@ gem install bundle --no-ri --no-rdoc
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p # FYI: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
 dnf -y install codeblocks
 
-dnf install -y compat-libstdc++-296.i686 compat-libstdc++-33.i686 compat-libstdc++-33.x86_64 ncurses-libs.i686 # for android studio
+dnf install -y compat-libstdc++-296.i686 compat-libstdc++-33.i686 compat-libstdc++-33.x86_64 zlib.i686 ncurses-libs.i686 # for android studio
 dnf install -y https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # google-chrome
 dnf install -y gimp inkscape mypaint # Draw
 
