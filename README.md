@@ -3,13 +3,8 @@
 ## How to use
 
 ```
-git clone https://github.com/wi1d5ky/myConfig ~/
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/fedora-init.sh /tmp/fedora-init.sj && sudo sh /tmp/fedora-init.sh
 vim .vimrc
 ```
-
-Then type `:PluginInstall`
-
-Don't forget to install `ctag`
 
 that is it!
