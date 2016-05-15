@@ -38,7 +38,7 @@ npm install surge mocha gulp grunt -g
 dnf install -y python3
 dnf install -y ruby ruby-devel rubygems libxml2-devel
 dnf install -y mariadb mariadb-devel sqlite sqlite-devel
-gem install rails
+gem install rails --no-ri --no-rdoc
 gem install github-pages --no-ri --no-rdoc
 gem install bundle --no-ri --no-rdoc
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p # FYI: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
