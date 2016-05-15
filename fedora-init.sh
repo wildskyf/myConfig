@@ -43,7 +43,7 @@ dnf -y install codeblocks
 
 dnf install -y compat-libstdc++-296.i686 compat-libstdc++-33.i686 compat-libstdc++-33.x86_64 zlib.i686 ncurses-libs.i686 # for android studio
 dnf install -y https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # google-chrome
-dnf install -y gimp inkscape mypaint # Draw
+dnf install -y audacity-nonfree transmission gimp inkscape mypaint
 
 # Input Method
 dnf install -y fcitx fcitx-table-chinese fcitx-configtool fcitx-qt4 fcitx-chewing im-chooser
