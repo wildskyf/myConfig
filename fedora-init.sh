@@ -30,12 +30,14 @@ wget https://atom.io/download/rpm /tmp/atom.rpm
 dnf install -y /tmp/atom.rpm
 
 # Dev
-dnf install -y gcc gcc-c++ git tig ctags
+dnf install -y git tig
+dnf group install "C Development Tools and Libraries"
 dnf install -y eclipse
 dnf install -y nodejs npm
 npm install surge mocha gulp grunt -g
 dnf install -y python3
-dnf install -y ruby ruby-devel rubygems
+dnf install -y ruby ruby-devel rubygems libxml2-devel
+gem install rails
 gem install github-pages --no-ri --no-rdoc
 gem install bundle --no-ri --no-rdoc
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p # FYI: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
