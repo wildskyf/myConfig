@@ -37,6 +37,7 @@ dnf install -y nodejs npm
 npm install surge mocha gulp grunt -g
 dnf install -y python3
 dnf install -y ruby ruby-devel rubygems libxml2-devel
+dnf install -y mariadb mariadb-devel sqlite sqlite-devel
 gem install rails
 gem install github-pages --no-ri --no-rdoc
 gem install bundle --no-ri --no-rdoc
