@@ -2,7 +2,7 @@
 " Author: Wildsky / wildskyf+vimrc (at) gmail.com
 " Blog: http://blog.wildsky.cc
 " Filename: .vimrc
-" Modified: 2016-06-06 20:27
+" Modified: 2016-09-24 20:27
 " ===============================================
 
 " ===============================================
@@ -21,22 +21,15 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Bundles
 Plugin 'ap/vim-css-color'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'itchyny/lightline.vim'			" 美化狀態列
-Plugin 'nielsmadan/harlequin'			" 主題
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sheerun/vim-polyglot'			" A solid language pack for Vim
-" Plugin 'terryma/vim-multiple-cursors'	" 多行同時編輯
-
-" Dependencies of snipMate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/snipMate'			" 可以在 ~/.vim/bundle/snipMate/ 中自訂
-Plugin 'honza/vim-snippets'						
-" FYI: https://github.com/honza/vim-snippets/tree/master/snippets
+Plugin 'ctrlpvim/ctrlp.vim'						" Fuzzy search
+Plugin 'editorconfig/editorconfig-vim'			" Editorconfig is awesome
+Plugin 'itchyny/lightline.vim'					" Statusbar beautify
+Plugin 'bling/vim-bufferline'					" Buffer list on statusbar
+Plugin 'mattn/emmet-vim'						" Web developer must use
+Plugin 'nielsmadan/harlequin'					" Theme
+Plugin 'ntpeters/vim-better-whitespace'			" Get rid of redundant whitespace
+Plugin 'othree/javascript-libraries-syntax.vim'	" Js lib
+Plugin 'sheerun/vim-polyglot'					" A solid language pack for Vim
 
 call vundle#end()
 filetype plugin indent on
@@ -49,29 +42,33 @@ filetype plugin indent on
 " ==========  General Setting  ===========
 " ========================================
 
-syntax on		" 語法上色
-set confirm		" 操作過程有衝突時，以明確的文字來詢問
-set cursorline		" 顯示目前的游標位置(行)
-set cursorcolumn	" 顯示目前的游標位置(列)
-set encoding=utf-8	" 編碼
-set hlsearch		" 搜尋到的字加 hightlight
-set history=50		" 保留 50 個使用過的指令
-set incsearch		" 即時顯示搜尋結果
-set ignorecase		" 搜尋忽略大小寫
-set laststatus=2	" 開啟狀態列
-set number			" 顯示行號
-set ruler			" 顯示右下角設定值
-set scrolloff=2		" 捲動時保留底下 2 行
-set showmatch		" 設置匹配模式，顯示匹配的括號
-set wrap			" 字數過長時換行
+syntax on			" syntax highlight
+set confirm			" if confict, ask me
+set cursorline		" display current cursor (line)
+set cursorcolumn	" display current cursor (column)
+set encoding=utf-8
+set hlsearch		" hightlight search result
+set history=50		" number of history of command
+set hidden			" make buffer could hold a modified file
+set incsearch		" display search result realtime
+set ignorecase		" case-insensitive
+set laststatus=2	" open status bar
+set number			" display line number
+set ruler			" right-bottom detail
+set scrolloff=2		" scroll with extra line
+set showmatch		" highlight matched brackets
+set wrap			" new line when too many char
 
-" 讓 git commit 字數限制為 72 字
+" limit char number for git commit
 autocmd Filetype gitcommit setlocal spell textwidth=72
-" 在存檔時自動把多餘的空白字元吃掉
+" redundant whitespace bye bye
 autocmd BufWritePre * StripWhitespace
-
-" 支援的 js framework
+" emmet trigger key
+" let g:user_emmet_leader_key='~~~~~~~~~~~~~~'
+" supported js framework
 let g:used_javascript_libs = 'jquery,react,flux,chai'
+" CtrlP custom
+set wildignore+=*/tmp/*,*/cache/*
 
 " Tab
 set tabstop=4
@@ -80,32 +77,69 @@ set autoindent
 set copyindent
 set smartindent
 
-" Treeview
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
-
-" Markdown
-let g:vim_markdown_folding_disabled=1	" 停用摺疊
-let g:vim_markdown_frontmatter=1		" 啟用 front matter (for jekyll)
-
 " ========================================
 " ================  Map  =================
 " ========================================
 
-" F2     : 開啟檔案瀏覽
 " F9     : 切換 paste 模式
 " F12    : 切換行號
-nmap <silent> <F2> :NERDTreeToggle<CR>
 :set pastetoggle=<F9>
-nnoremap <F12> :set nonumber!<CR>
+noremap  <Home> ^
+inoremap <Home> <ESC>^i
+noremap  <F2> :mksession! ~/vim_session <CR>
+noremap  <F3> :source ~/vim_session <CR>
+nnoremap <F12> :call NumberToggle()<CR>
+
+function! NumberToggle()
+	if(&relativenumber == 1)
+		call SetNumber()
+	else
+		call SetRelativeNumber()
+	endif
+endfunc
+
+function! SetNumber()
+	set norelativenumber
+	set number
+endfunc
+
+function! SetRelativeNumber()
+	set relativenumber
+	set nonumber
+endfunc
+
+" remap arrow keys
+" nnoremap <Left> :bprev<CR>
+" nnoremap <Right> :bnext<CR>
+
+
+" ========================================
+" ============== auto run ================
+" ========================================
+
+:au FocusLost *   :call SetNumber()
+:au FocusGained * :call SetRelativeNumber()
+
+autocmd InsertEnter * :call SetNumber()
+autocmd InsertLeave * :call SetRelativeNumber()
 
 " ========================================
 " ===============  theme  ================
 " ========================================
 
-set t_Co=256		" 歡樂的顏色！
+set t_Co=256		" happy color!
+set showtabline=2   " always show tabline
+
 let g:lightline = {
-	\ 'colorscheme': 'wombat'
+	\ 'colorscheme': 'wombat',
+	\ 'separator': { 'left': '', 'right': '' },
+	\ 'subseparator': { 'left': '', 'right': '' },
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ], [ 'filename' ], [ 'bufferline' ] ],
+	\ },
+	\ 'component': {
+	\   'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}'
+	\ }
 \ }
 
 set background=dark
