@@ -85,7 +85,8 @@ source $(brew --prefix nvm)/nvm.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sudo='sudo '
-alias vi='vim'
+alias vi='emacs -nw'
+alias vim='emacs -nw'
 alias ffd='/Applications/Firefox.app/Contents/MacOS/firefox'
 alias runmattermost='docker run --name mattermost-preview -d --publish 8065:8065 mattermost/platform'
 
