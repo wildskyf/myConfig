@@ -5,8 +5,6 @@ if [ "$(id -u)" != 0 ]; then
   echo "You should run this script directly as root."
 fi
 
-echo "fastestmirror=true" >> /etc/dnf/dnf.conf
-
 # Repos
 dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
 dnf install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
@@ -56,17 +54,3 @@ echo "export QT_IM_MODULE=fcitx" >> /etc/profile
 echo "export XMODIFIERS="@im=fcitx"" >> /etc/profile
 im-chooser
 
-# clone conf files
-rm ~/.bashrc
-rm ~/.vimrc
-rm ~/.gitconfig
-wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.bashrc
-wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.vimrc
-wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.gitconfig
-wget https://raw.githubusercontent.com/wi1d5ky/myConfig/master/.gemrc
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-echo "Now, you can go to 'https://developer.android.com/sdk/index.html#downloads' to download tools that you need."
-echo "Besides, you sholud install plugins for vim by using the command: ':PluginInstall'."
-
-read -n1 -r -p "Press any key to continue..." key
