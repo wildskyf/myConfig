@@ -15,7 +15,7 @@ echo "Install latest node.js"
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
 echo "Install Caskroom"
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 
 echo "Install Applications..."
 brew cask install firefox google-chrome nally iterm2 sequelpro \
