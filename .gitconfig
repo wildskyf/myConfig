@@ -3,4 +3,4 @@
 	name = wildskyf
 [core]
   editor = vim
-  excludesfile = ~/.git.d/.gitignore
+  excludesfile = ~/.bash.d/.gitignore
