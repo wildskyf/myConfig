@@ -1,3 +1,3 @@
 # myConfig
 
-curl -o- https://cdn.rawgit.com/wildskyf/myConfig/master/init.sh | bash
+curl -o- https://cdn.jsdelivr.net/gh/wildskyf/myConfig/init.sh | bash
