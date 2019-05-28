@@ -2,6 +2,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias dir='ls -ba'
 alias c='clear'
+alias v='vim'
+alias v.='vim .'
 
 alias vi='vim -u ~/.vim.d/general.vimrc'
 alias g='git'
