@@ -1,3 +1,6 @@
 [submodule "vim.d"]
 	path = vim.d
-	url = git@github.com:wildskyf/vim.d.git
+	url = https://github.com/wildskyf/vim.d
+[submodule "bash_it"]
+	path = bash_it
+	url = https://github.com/Bash-it/bash-it
