@@ -1,3 +1,3 @@
 # myConfig
 
-curl -o- https://cdn.jsdelivr.net/gh/wildskyf/myConfig/init.sh | bash
+Just clone & source `init.zsh` from `~/.zshrc`

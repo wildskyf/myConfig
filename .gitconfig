@@ -1,6 +1,0 @@
-[user]
-	email = poppin.wildsky+gh@gmail.com
-	name = wildskyf
-[core]
-  editor = vim
-  excludesfile = ~/.bash.d/.gitignore
