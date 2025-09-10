@@ -17,5 +17,9 @@ keybind = alt+right=unbind
 keybind = cmd+left=previous_tab
 keybind = cmd+right=next_tab
 
+# Tab moving with Command + Shift + arrow keys
+keybind = cmd+shift+left=move_tab:-1
+keybind = cmd+shift+right=move_tab:+1
+
 macos-icon = blueprint
 keybind = shift+enter=text:\x1b\r
