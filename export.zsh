@@ -7,8 +7,8 @@ export RUST_WITHOUT=rust-docs
 # export CARGO_TARGET_DIR=".cargo-target"
 
 # ASDF
-export ASDF_DATA_DIR="$HOME/.config/asdf/data"
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$HOME/.config/asdf/tool-versions"
+# export ASDF_DATA_DIR="$HOME/.config/asdf/data"
+# export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$HOME/.config/asdf/tool-versions"
 
 # disable less history file
 export LESSHISTFILE=-
@@ -18,7 +18,10 @@ export LESSHISTFILE=-
 # PATH
 
 # User Apps
-export PATH="/Users/wildsky/.bin/:$PATH"
+export PATH="/Users/wildsky/bin:$PATH"
+
+# uv
+export PATH="/Users/wildsky/.local/bin:$PATH"
 
 # BasicTex
 export PATH="/usr/local/texlive/2024basic/bin/universal-darwin/:$PATH"
@@ -32,3 +35,12 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # ref: https://blog.wildsky.cc/posts/try-game-porting-toolkit-to-play-ragnarok-online-but-failed/
 export PATH="/opt/homebrew/opt/gawk/libexec/gnubin/:$PATH"
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+
+export PATH="/Users/wildsky/go:$PATH"
+
+
+# for react native
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools

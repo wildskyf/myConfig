@@ -4,6 +4,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+# mise
+if command -v mise > /dev/null; then
+  eval "$(mise activate zsh)"
+  eval "$(mise hook-env)"
+fi
+
+
+
 # # gcloud
 # source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 # source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
@@ -23,5 +31,5 @@ source ~/.cargo/env
 # source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # chruby ruby-3.1.3 # run chruby to see actual version
 
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# postgres
+eval "$(/opt/homebrew/bin/brew shellenv)"
