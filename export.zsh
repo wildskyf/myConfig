@@ -30,6 +30,9 @@ export PATH="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/bin:$PAT
 
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+# export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+
 # for x86 brew
 # alias brew86='/usr/local/bin/brew'
 # ref: https://blog.wildsky.cc/posts/try-game-porting-toolkit-to-play-ragnarok-online-but-failed/
