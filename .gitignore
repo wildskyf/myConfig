@@ -1,3 +1,20 @@
+# vim
+.vim_auto_session.vim
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+
+# ghostty
+ghostty/config.*.bak
+
+# shell
 cache/
 private-configs/
 .DS_Store
+raycast/config.json
+kubeconfigs/*

@@ -1,0 +1,21 @@
+theme = Monokai Classic
+
+
+font-family = SauceCodePro Nerd Font Mono
+font-size = 18
+font-thicken = true
+
+
+
+# allow alt
+macos-option-as-alt = true
+
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+# Tab switching with Command + arrow keys
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+
+macos-icon = blueprint
+keybind = shift+enter=text:\x1b\r
