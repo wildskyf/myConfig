@@ -57,7 +57,7 @@
 	name = wildskyf
 [core]
   editor = vim
-	excludesfile = /Users/wildsky/.config/gitignore
+	excludesfile = /Users/wildsky/.config/git/ignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	co = checkout
