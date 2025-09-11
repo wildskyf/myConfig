@@ -1,2 +1,7 @@
-**/.claude/settings.local.json
+# claude code related files
+**/.claude/**
+.playwright-mcp/*
+
+
+# mac cache files
 .DS_Store
