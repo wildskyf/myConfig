@@ -18,3 +18,5 @@ private-configs/
 .DS_Store
 raycast/config.json
 kubeconfigs/*
+
+**/.claude/**
