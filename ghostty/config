@@ -1,10 +1,9 @@
+macos-icon = blueprint
 theme = Monokai Classic
-
 
 font-family = SauceCodePro Nerd Font Mono
 font-size = 18
 font-thicken = true
-
 
 
 # allow alt
@@ -21,5 +20,6 @@ keybind = cmd+right=next_tab
 keybind = cmd+shift+left=move_tab:-1
 keybind = cmd+shift+right=move_tab:+1
 
-macos-icon = blueprint
 keybind = shift+enter=text:\x1b\r
+
+copy-on-select = clipboard
