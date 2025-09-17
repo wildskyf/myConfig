@@ -3,3 +3,6 @@
 -- Add any additional options here
 
 vim.opt.relativenumber = false
+
+-- Disable autoformat
+vim.g.autoformat = false
