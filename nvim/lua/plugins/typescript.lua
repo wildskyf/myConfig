@@ -1,12 +1,11 @@
 return {
-  -- add typescript-tools.nvim
+  -- Disable typescript-tools.nvim (use LazyVim's default vtsls instead)
   {
     "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
+    enabled = false,
   },
 
-  -- ensure mason installs the server
+  -- Mason: ensure TypeScript tools are installed
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
@@ -20,28 +19,11 @@ return {
         icons = {
           package_installed = "✓",
           package_pending = "➜",
-          package_uninstalled = "✗"
-        }
+          package_uninstalled = "✗",
+        },
       },
       log_level = vim.log.levels.INFO,
       max_concurrent_installers = 10,
-    },
-  },
-
-  -- configure typescript server with typescript-tools
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        typescript_tools = {
-          enabled = true,
-        },
-      },
-      setup = {
-        typescript_tools = function()
-          return true
-        end,
-      },
     },
   },
 }
