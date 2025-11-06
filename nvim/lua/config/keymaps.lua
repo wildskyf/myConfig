@@ -32,26 +32,13 @@ map("n", "<S-UP>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
 map("i", "<S-UP>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<S-UP>", "<cmd>m '<-2<cr>gv=gv", { desc = "Move Up" })
 
--- buffer
+-- Buffer navigation (Vim-native approach)
+-- Primary: use :b <keyword><Tab> for buffer switching
+-- Quick switch to alternate buffer (last file)
+map("n", "<C-a>", "<C-^>", { desc = "Switch to alternate buffer" })
 
-map("n", "<leader><Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
-map("n", "<leader><S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
-
---- buffer navigation
-
-map("n", "<S-LEFT>", "<cmd>bprevious<cr>", { desc = "Privious Buffer" })
-map("n", "<S-RIGHT>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-
--- map("n", "<A-Right>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
--- map("n", "<A-Left>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
-
--- tab
--- TODO: let A-Left/Right navigate tabs, S-A-Left/Right move tabs
---
--- map("n", "<A-Left>", ":-tabmove<cr>", { desc = "Move Current Tab Left" })
--- map("n", "<A-Right>", ":+tabmove<cr>", { desc = "Move Current Tab Right" })
---
--- map("n", "<A-Home>", ":tabm 0<cr>", { desc = "Move Current Tab First" })
--- map("n", "<A-End>", ":tabm<cr>", { desc = "Move Current Tab End" })
+-- Tab navigation (for workspace separation)
+map("n", "<S-LEFT>", "gT", { desc = "Previous tab" })
+map("n", "<S-RIGHT>", "gt", { desc = "Next tab" })
 
 -- Archives

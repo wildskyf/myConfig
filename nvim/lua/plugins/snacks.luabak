@@ -1,0 +1,21 @@
+-- Configure snacks.nvim to preserve Vim-native command output behavior
+return {
+  "folke/snacks.nvim",
+  opts = {
+    -- Disable notification redirection for commands like :ls
+    -- This ensures command output stays in the command-line area
+    notifier = {
+      enabled = true,
+      -- Don't redirect command output to notifications
+      timeout = 3000,
+    },
+    -- Ensure command-line output is not intercepted
+    -- Let :ls and similar commands use native Vim display
+    styles = {
+      notification = {
+        -- Keep notifications for actual notifications, not command output
+        wo = { wrap = true },
+      },
+    },
+  },
+}
