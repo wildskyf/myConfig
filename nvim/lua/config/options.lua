@@ -20,3 +20,6 @@ vim.opt.switchbuf = "useopen,usetab" -- Jump to existing buffer/tab if open
 vim.opt.wildmenu = true -- Enable command-line completion menu
 vim.opt.wildmode = "list:longest,full" -- List all matches and complete longest common, then full
 vim.opt.wildignore = "*.o,*.obj,*.pyc,*~,*.swp,*.class,*.DS_Store" -- Ignore patterns for file/buffer completion
+
+-- Tabline settings - only show filename in tabs
+vim.opt.tabline = "%!v:lua.require'config.tabline'.render()" -- Custom tabline: show only filename
