@@ -34,6 +34,14 @@ return {
         ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
       },
     },
+    lsp = {
+      actions = {
+        ["default"] = require("fzf-lua.actions").file_edit,
+        ["ctrl-t"] = require("fzf-lua.actions").file_tabedit,
+        ["ctrl-s"] = require("fzf-lua.actions").file_split,
+        ["ctrl-v"] = require("fzf-lua.actions").file_vsplit,
+      },
+    },
   },
 }
 
